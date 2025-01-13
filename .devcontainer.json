@@ -2,7 +2,7 @@
   "name": "C# (.NET) and PostgreSQL",
   "dockerComposeFile": "docker-compose.yml",
   "service": "app",
-  "workspaceFolder": "/workspaces/ExampleWithFeatures",
+  "workspaceFolder": "/workspaces/riderPluginsInDevContainerExample",
   "customizations": {
     "jetbrains": {
       "backend": "Rider",
