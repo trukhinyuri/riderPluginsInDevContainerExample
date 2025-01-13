@@ -1,0 +1,18 @@
+{
+  "name": "C# (.NET) and PostgreSQL",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspaces/ExampleWithFeatures",
+  "customizations": {
+    "jetbrains": {
+      "backend": "Rider",
+      "plugins" : [
+        "avalonia-rider",
+        "ru.adelf.idea.dotenv",
+        "com.intellij.ml.llm",
+        "mobi.hsz.idea.gitignore",
+        "dev.turingcomplete.intellijdevelopertoolsplugins"
+      ]
+    }
+  }
+}

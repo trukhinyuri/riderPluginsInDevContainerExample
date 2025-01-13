@@ -1,0 +1,30 @@
+services:
+  app:
+    image: mcr.microsoft.com/dotnet/sdk:7.0
+    container_name: dotnet_app
+    volumes:
+      - .:/workspaces/ExampleWithFeatures
+    working_dir: /workspaces/ExampleWithFeatures
+    command: bash -c "dotnet restore && dotnet run --urls http://0.0.0.0:5000"
+    ports:
+      - "5010:5000"   # Пробрасываем на 5010, чтобы избежать конфликта
+    depends_on:
+      - db
+    environment:
+      ConnectionStrings__DefaultConnection: Host=db;Database=mydb;Username=dbuser;Password=dbpassword
+
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: dbuser
+      POSTGRES_PASSWORD: dbpassword
+      POSTGRES_DB: mydb
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
